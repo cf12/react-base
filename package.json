@@ -1,0 +1,19 @@
+{
+  "name": "type-tester",
+  "version": "0.1.0",
+  "description": "A modern, minimalistic website for testing typing speeds, built with React, Webpack, and Redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CF12/type-tester.git"
+  },
+  "author": "CF12",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CF12/type-tester/issues"
+  },
+  "homepage": "https://github.com/CF12/type-tester#readme"
+}
