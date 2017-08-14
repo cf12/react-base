@@ -1,2 +1,4 @@
-# type-test
-A modern, minimalistic website for testing typing speeds
+# type-tester
+WIP README.md
+
+soz ;_;
