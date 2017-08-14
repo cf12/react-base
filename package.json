@@ -1,21 +1,21 @@
 {
-  "name": "type-tester",
+  "name": "react-base",
   "version": "0.1.0",
-  "description": "A modern, minimalistic website for testing typing speeds, built with React, Webpack, and Redux",
+  "description": "My personal React, Babel, & Webpack base",
   "main": "index.js",
   "scripts": {
     "run-dev": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CF12/type-tester.git"
+    "url": "git+https://github.com/CF12/react-base.git"
   },
   "author": "CF12",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CF12/type-tester/issues"
+    "url": "https://github.com/CF12/react-base/issues"
   },
-  "homepage": "https://github.com/CF12/type-tester#readme",
+  "homepage": "https://github.com/CF12/react-base#readme",
   "dependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",

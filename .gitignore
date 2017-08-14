@@ -127,4 +127,7 @@ typings/
 !.vscode/extensions.json
 .history
 
+# Ignore Webpack Builds
+build
+
 # End of https://www.gitignore.io/api/node,intellij+all,visualstudiocode
