@@ -4,12 +4,12 @@ var path = require('path')
 var BUILD_DIR = path.resolve(__dirname, 'build/')
 var APP_DIR = path.resolve(__dirname, 'src/')
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
-    disable: process.env.NODE_ENV === "development"
-});
+  filename: '[name].[contenthash].css',
+  disable: process.env.NODE_ENV === 'development'
+})
 
 var config = {
   entry: APP_DIR + '/index.jsx',
@@ -20,6 +20,10 @@ var config = {
 
   module: {
     loaders: [
+      {
+        test: /\.html$/,
+        loader: 'file-loader?name=[name].[ext]!extract-loader!html-loader'
+      },
       {
         test: /\.jsx?/,
         include: APP_DIR,
@@ -34,7 +38,7 @@ var config = {
       }
     ]
   },
-  
+
   plugins: [
     extractSass
   ]
