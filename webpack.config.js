@@ -7,7 +7,7 @@ var APP_DIR = path.resolve(__dirname, 'src/')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const extractSass = new ExtractTextPlugin({
-  filename: '[name].[contenthash].css',
+  filename: '[name].css',
   disable: process.env.NODE_ENV === 'development'
 })
 
