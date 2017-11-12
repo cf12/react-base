@@ -7,8 +7,7 @@ var APP_DIR = path.resolve(__dirname, 'src/')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const extractSass = new ExtractTextPlugin({
-  filename: '[name].css',
-  disable: process.env.NODE_ENV === 'development'
+  filename: '[name].css'
 })
 
 var config = {
@@ -21,13 +20,13 @@ var config = {
   module: {
     loaders: [
       {
-        test: /\.html$/,
-        loader: 'file-loader?name=[name].[ext]!extract-loader!html-loader'
-      },
-      {
         test: /\.jsx?/,
         include: APP_DIR,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.html$/,
+        loader: 'file-loader?name=[name].[ext]!extract-loader!html-loader'
       },
       {
         test: /\.scss$/,
@@ -35,6 +34,14 @@ var config = {
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
         })
+      },
+      // {
+      //   test: /\.scss$/,
+      //   loader: 'style-loader!css-loader!resolve-url-loader!sass-loader'
+      // },
+      {
+        test: /\.(ttf|otf|eot|svg|woff(2)?)$/,
+        loader: 'file-loader'
       }
     ]
   },

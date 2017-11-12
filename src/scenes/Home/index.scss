@@ -1,3 +1,20 @@
-body {
-  background-color: blue;
+@font-face {
+  font-family: "Montserrat";
+  src: url(../../assets/fonts/Montserrat-Regular.ttf) format('truetype');
 }
+
+body {
+  display: flex;
+  background: linear-gradient(to right, #00F260, #0575E6);
+
+  align-items: center;
+  justify-content: center;
+}
+
+body p {
+  font-family: Montserrat, sans-serif;
+  font-size: 80px;
+  color: white;
+  text-shadow: 1px 1px 15px rgba(0, 0, 0, 80);
+}
+
