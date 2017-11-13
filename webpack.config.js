@@ -42,6 +42,12 @@ var config = {
       {
         test: /\.(ttf|otf|eot|svg|woff(2)?)$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]'
+        ]
       }
     ]
   },
