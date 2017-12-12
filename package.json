@@ -4,7 +4,9 @@
   "description": "My personal React, Babel, & Webpack base",
   "main": "index.js",
   "scripts": {
-    "run-dev": "webpack -d --watch"
+    "build-dev": "webpack --config webpack.dev.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "watch-dev": "webpack --watch --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -35,7 +37,9 @@
     "sass-loader": "^6.0.6",
     "standard": "^10.0.3",
     "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^2.9.4",
+    "webpack-merge": "^4.1.1"
   }
 }
