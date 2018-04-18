@@ -6,9 +6,11 @@ const APP_DIR = path.resolve(__dirname, 'src/')
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const extractSass = new ExtractTextPlugin({
+const extractStyles = new ExtractTextPlugin({
   filename: '[name].css'
 })
+
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 const config = {
   entry: APP_DIR + '/index.jsx',
@@ -17,8 +19,14 @@ const config = {
     filename: 'bundle.js'
   },
 
+  devServer: {
+    contentBase: APP_DIR,
+    compress: true,
+    port: 3000
+  },
+
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         include: APP_DIR,
@@ -26,13 +34,21 @@ const config = {
       },
       {
         test: /\.html$/,
-        loader: 'file-loader?name=[name].[ext]!extract-loader!html-loader'
+        loader: 'html-loader',
+        options: { minimize: true }
       },
       {
         test: /\.scss$/,
-        use: extractSass.extract({
+        use: extractStyles.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader', 'sass-loader', 'postcss-loader']
+        })
+      },
+      {
+        test: /\.css$/,
+        use: extractStyles.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
         })
       },
       {
@@ -49,7 +65,11 @@ const config = {
   },
 
   plugins: [
-    extractSass
+    new HtmlWebPackPlugin({
+      template: APP_DIR + '/index.html',
+      filename: './index.html'
+    }),
+    extractStyles
   ]
 }
 

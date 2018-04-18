@@ -2,8 +2,12 @@
 This repo contains my own personalized base setup for website projects.
 It contains the following:
 - React
-- Webpack
-- Babel (Babel Loader for Webpack)
+- Webpack v4.5.0
+- Babel Env Loader
+- Support for SCSS, as well as normal CSS
+- Normalize.css
+- PostCSS Support
+- Font loading support
 
 Still needs work, but it's pretty minimalistic and doesn't require much effort to use, which is an automatic thumbs up for me. ;D
 
