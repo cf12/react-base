@@ -4,11 +4,11 @@ const path = require('path')
 const BUILD_DIR = path.resolve(__dirname, 'build/')
 const APP_DIR = path.resolve(__dirname, 'src/')
 
-// const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-// const extractSass = new ExtractTextPlugin({
-//   filename: '[name].css'
-// })
+const extractStyles = new ExtractTextPlugin({
+  filename: '[name].css'
+})
 
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
@@ -17,6 +17,12 @@ const config = {
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
+  },
+
+  devServer: {
+    contentBase: APP_DIR,
+    compress: true,
+    port: 3000
   },
 
   module: {
@@ -33,11 +39,17 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: ['css-loader', 'sass-loader']
-        // use: extractSass.extract({
-        //   fallback: 'style-loader',
-        //   use: ['css-loader', 'sass-loader']
-        // })
+        use: extractStyles.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader', 'postcss-loader']
+        })
+      },
+      {
+        test: /\.css$/,
+        use: extractStyles.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       },
       {
         test: /\.(ttf|otf|eot|svg|woff(2)?)$/,
@@ -56,8 +68,8 @@ const config = {
     new HtmlWebPackPlugin({
       template: APP_DIR + '/index.html',
       filename: './index.html'
-    })
-    // extractSass
+    }),
+    extractStyles
   ]
 }
 
