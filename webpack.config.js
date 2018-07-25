@@ -19,6 +19,10 @@ const config = {
     filename: 'bundle.js'
   },
 
+  resolve: {
+    modules: ['node_modules', APP_DIR]
+  },
+
   devServer: {
     contentBase: APP_DIR,
     compress: true,
@@ -28,7 +32,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        test: /\.(jsx|js)$/,
         include: APP_DIR,
         loader: 'babel-loader'
       },

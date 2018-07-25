@@ -1,12 +1,12 @@
 {
   "name": "react-base",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "My personal React, Babel, & Webpack base",
   "main": "index.js",
   "scripts": {
-    "dev-server": "webpack-dev-server -d",
-    "dev-build": "webpack -d",
-    "prod-build": "webpack -p --output-path=build-prod"
+    "start": "webpack-dev-server -d",
+    "build": "webpack -p --output-path=build-prod",
+    "dev-build": "webpack -d"
   },
   "repository": {
     "type": "git",
